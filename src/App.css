@@ -1,0 +1,61 @@
+/* Navbar */
+.logo {
+  height: 32px;
+  margin: 16px;
+  padding-left: 7px;
+  display: flex;
+}
+
+.logo-title {
+  padding-left: 16px;
+  padding-top: 3px;
+  color: white !important;
+}
+
+.navbar-content {
+  font-size: 10px !important;
+}
+/* */
+
+/* Main content */ 
+.header-container {
+  background-color: #fff !important;
+  height: 130px !important;
+  display: block !important;
+}
+
+.main {
+  background-color: 'none' !important;
+}
+
+.app-container {
+  display: flex !important;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.main-content {
+  margin: 0 16px;
+}
+
+/* n is a counter starting at 0 
+   n+1 is the first element
+*/
+.home-heading-container:nth-child(n+2) {
+  margin-top: 50px;
+}
+
+/* Footer */
+.footer-container {
+  background-color: 'none' !important;
+  text-align: center;
+  font-size: 9px !important;
+  color: #000 !important;
+}
+
+/* Cryptocurrencies */
+.search-crypto {
+  margin-bottom: 20px
+}
