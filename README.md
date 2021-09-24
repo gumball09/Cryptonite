@@ -4,7 +4,7 @@ REAL-TIME RANKING OF CRYPTOCURRENCIES & CRYPTO'S CURRENT GLOBAL STATS
 ## Introduction
 This is the code repository hosting the real-time application of fetching cryptocurrencies
 
-### Users can:
+#### Users can:
 - Find the top 10 - 100 cryptocurrencies at the moment
 - Analyze data from charts
 - Read news about the world's current cryptocurrency changes 
