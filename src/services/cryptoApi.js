@@ -26,7 +26,6 @@ export const cryptoApi = createApi({
     getCryptos: builder.query({
       query: (count) => {
           let url;
-
           if(count) {
               url = `/coins?limit=${count}`
           } else url = `/coins`
@@ -34,9 +33,20 @@ export const cryptoApi = createApi({
           return createRequest(url)
       }
     }),
+
+    // get 1 crypto
+    getCryptoDetails: builder.query({
+      query: (coinId) => createRequest(`/coin/${coinId}`)
+    }),
+
+    // get crypto history
+    getCryptoHistory: builder.query({
+      query: (coinId, period) => createRequest(`/coin/${coinId}/history/${period}`)
+    })
+
   }),
 });
 
 // Export auto-generated HOOK for `getPost` query endpoint
 // Hook starts with 'use'
-export const { useGetGlobalStatsQuery, useGetCryptosQuery } = cryptoApi;
+export const { useGetGlobalStatsQuery, useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } = cryptoApi;

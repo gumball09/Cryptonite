@@ -1,5 +1,5 @@
 import { Layout } from 'antd'
-import { Navbar, Footer, Homepage, Cryptocurrencies, Chart, News } from './components'
+import { Navbar, Footer, Homepage, Cryptocurrencies, Chart, News, CryptoDetails } from './components'
 
 import { Switch, Route } from 'react-router-dom'
 import './App.css'
@@ -28,6 +28,9 @@ const App = () => {
                                 </Route>
                                 <Route path="/news">
                                     <News/>
+                                </Route>
+                                <Route path="/cryptos/:coinId">
+                                    <CryptoDetails/>
                                 </Route>
                                 <Route path="/">
                                     <Homepage/>

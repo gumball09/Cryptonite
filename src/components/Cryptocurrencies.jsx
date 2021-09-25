@@ -21,14 +21,14 @@ const Cryptocurrencies = ({ simplified }) => {
         // Format data to be used in table
         setCryptos(prevState => cryptosList?.data?.coins.map(item => {
             return {
-                key: item.id,
-                name: item.name,
                 icon: item.iconUrl,
+                name: item.name,
                 volume: item.volume,
                 marketCap: item.marketCap,
                 price: item.price,
                 dailyChange: item.change,
-                rank: item.rank
+                rank: item.rank,
+                details: item.id
             }
         }))
 
@@ -38,26 +38,27 @@ const Cryptocurrencies = ({ simplified }) => {
             // Format data to be used in table
             setCryptos(prevState => filteredData.map(item => {
                 return {
-                    key: item.id,
-                    name: <Link to={`/cryptos/${item.id}`}>{item.name}</Link>,
                     icon: item.iconUrl,
+                    name: item.name, 
                     volume: item.volume,
                     marketCap: item.marketCap,
                     price: item.price,
                     dailyChange: item.change,
-                    rank: item.rank
+                    rank: item.rank,
+                    details: item.id
                 }
             }))
         }
     }, [cryptosList, search])
 
+    console.log(cryptos)
     // Create columns for tables
     const columns = [
       {
         title: '',
         dataIndex: 'icon',
         key: 'icon',
-        render: (icon) => <img src={icon} alt={icon} height={15} width={15} />,
+        render: (icon) => <img src={icon} alt={icon} height={15} width={15} />
       },
       {
         title: 'Rank',
@@ -69,14 +70,8 @@ const Cryptocurrencies = ({ simplified }) => {
         dataIndex: 'name',
         key: 'name',
         render: (name) => (
-          <b
-            style={{
-              color: '#52b2f2',
-            }}
-          >
-            {name}
-          </b>
-        ),
+          <b style={{ color: '#0071bd' }}>{name}</b>
+        )
       },
       {
         title: 'Price (USD)',
@@ -96,6 +91,12 @@ const Cryptocurrencies = ({ simplified }) => {
         key: 'dailyChange',
         render: (dailyChange) => millify(dailyChange).toString() + '%',
       },
+      {
+        title: 'Details',
+        dataIndex: 'details',
+        key: 'details',
+        render: (details) => <Link to={`/cryptos/${details}`}>More details</Link>
+      }
     ];
     
     if(isFetching) {
@@ -114,7 +115,9 @@ const Cryptocurrencies = ({ simplified }) => {
             />
           </div>
         )}
-        <Table dataSource={cryptos} columns={columns} size="small"/>
+        <div style={{ overflow: 'hidden' }}>
+          <Table style={{ 'overflow-y': 'auto' }}dataSource={cryptos} columns={columns} size="small"/>
+        </div>
       </>
     )
 }
