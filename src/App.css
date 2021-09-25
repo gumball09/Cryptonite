@@ -53,7 +53,7 @@
    n+1 is the first element
 */
 .home-heading-container:nth-child(n+2) {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 /* Footer */
@@ -217,4 +217,28 @@
     .coin-detail-container{
         margin: 0;
     }
+}
+
+/* Line Chart */
+.chart-header{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    color: #0071bd;
+}
+.chart-title{
+    color: #0071bd !important;
+}
+.price-container{
+    display: flex !important;
+    gap: 20px !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+.price-change{
+    font-weight: 900 !important;
+}
+.current-price{
+    margin-top: 0px !important;
+    font-weight: 900 !important;
 }

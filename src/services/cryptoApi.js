@@ -17,31 +17,32 @@ export const cryptoApi = createApi({
 
   // DEFINE ENDPONTS
   endpoints: (builder) => ({
-    // get global stats 
+    // get global stats
     getGlobalStats: builder.query({
-      query: () => createRequest('/stats')
+      query: () => createRequest('/stats'),
     }),
 
     // get all cryptos
     getCryptos: builder.query({
       query: (count) => {
-          let url;
-          if(count) {
-              url = `/coins?limit=${count}`
-          } else url = `/coins`
+        let url;
+        if (count) {
+          url = `/coins?limit=${count}`;
+        } else url = `/coins`;
 
-          return createRequest(url)
-      }
+        return createRequest(url);
+      },
     }),
 
     // get 1 crypto
     getCryptoDetails: builder.query({
-      query: (coinId) => createRequest(`/coin/${coinId}`)
+      query: (coinId) => createRequest(`/coin/${coinId}`),
     }),
 
     // get crypto history
     getCryptoHistory: builder.query({
-      query: (coinId, period) => createRequest(`/coin/${coinId}/history/${period}`)
+      query: ({ coinId, timeperiod }) =>
+        createRequest(`coin/${coinId}/history/${timeperiod}`),
     })
 
   }),
